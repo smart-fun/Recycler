@@ -102,4 +102,6 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+![alt text](https://github.com/smart-fun/Recycler/tree/master/screenshot.png "Screenshot example")
+
 
