@@ -32,7 +32,7 @@ public class ProductItem extends RecyclerItem {
 
     @Override
     public void updateView(RecyclerHolder parentHolder, int position) {
-        Holder holder = (Holder) parentHolder;
+        ProductHolder holder = (ProductHolder) parentHolder;
         holder.mPhotoView.setImageResource(mProduct.getPhotoResId());
         holder.mTitleView.setText(mProduct.getName());
     }
@@ -40,12 +40,12 @@ public class ProductItem extends RecyclerItem {
 ```
 
 ``` java
-public class Holder extends RecyclerHolder {
+public class ProductHolder extends RecyclerHolder {
 
     private ImageView mPhotoView;
     private TextView mTitleView;
 
-    public Holder(View itemView) {
+    public ProductHolder(View itemView) {
         super(itemView);
         mPhotoView = (ImageView) itemView.findViewById(R.id.photoView);
         mTitleView = (TextView) itemView.findViewById(R.id.titleView);
@@ -64,9 +64,9 @@ public class MainAdapter extends RecyclerAdapter {
     protected Class<? extends RecyclerHolder> getHolderClassForViewType(int viewType) {
         switch(viewType) {
             case ProductItem.PRODUCT_ITEM_RES_ID:
-                return ProductItem.Holder.class;
+                return ProductHolder.class;
             case AdItem.AD_ITEM_RES_ID:
-                return AdItem.Holder.class;
+                return AdHolder.class;
         }
         return null;
     }
@@ -102,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-![alt text](https://github.com/smart-fun/Recycler/tree/master/screenshot.png "Screenshot example")
+## Result on screen
+
+![alt text](https://github.com/smart-fun/Recycler/blob/master/screenshot.png?raw=true "Screenshot example")
 
 
