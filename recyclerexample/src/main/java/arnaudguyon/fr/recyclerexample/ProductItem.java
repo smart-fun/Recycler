@@ -1,12 +1,11 @@
-package arnaudguyon.fr.recycler.example;
+package arnaudguyon.fr.recyclerexample;
 
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import arnaudguyon.fr.recycler.R;
-import arnaudguyon.fr.recycler.RecyclerHolder;
-import arnaudguyon.fr.recycler.RecyclerItem;
+import arnaudguyon.fr.recyclerlib.RecyclerHolder;
+import arnaudguyon.fr.recyclerlib.RecyclerItem;
 
 /**
  * Item corresponding to a Product in the RecyclerAdapter

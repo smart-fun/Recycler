@@ -1,4 +1,4 @@
-package arnaudguyon.fr.recycler.example;
+package arnaudguyon.fr.recyclerexample;
 
 /**
  * Model for an Ad

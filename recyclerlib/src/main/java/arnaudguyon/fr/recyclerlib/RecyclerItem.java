@@ -1,4 +1,4 @@
-package arnaudguyon.fr.recycler;
+package arnaudguyon.fr.recyclerlib;
 
 /**
  * Base class for all Items used by the RecyclerAdapter.

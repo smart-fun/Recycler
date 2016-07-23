@@ -1,4 +1,4 @@
-package arnaudguyon.fr.recycler;
+package arnaudguyon.fr.recyclerlib;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

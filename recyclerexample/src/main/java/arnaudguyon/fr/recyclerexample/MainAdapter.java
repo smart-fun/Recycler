@@ -1,7 +1,7 @@
-package arnaudguyon.fr.recycler.example;
+package arnaudguyon.fr.recyclerexample;
 
-import arnaudguyon.fr.recycler.RecyclerAdapter;
-import arnaudguyon.fr.recycler.RecyclerHolder;
+import arnaudguyon.fr.recyclerlib.RecyclerAdapter;
+import arnaudguyon.fr.recyclerlib.RecyclerHolder;
 
 /**
  * Example of an adapter with 2 item types: ProductItem and AdItem
