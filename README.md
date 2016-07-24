@@ -6,19 +6,41 @@ Recycler is an Android Studio project (soon a library) which makes it easy to us
 * RecyclerItem
 * RecyclerHolder
 
-### RecyclerAdapter
+#### RecyclerAdapter
 This class extends RecyclerView.Adapter
 It holds an ArrayList of RecyclerItem so that it is easy to manipulate always the same type of objects
 
-### RecyclerItem
+#### RecyclerItem
 Item to extend depending on the content you want to display (ie Products or Ads)
 
-### RecyclerHolder
+#### RecyclerHolder
 Holds the View
 
-## Usage
+## Installation
+
+Add the following maven{} line in your PROJECT build.gradle file
+
+```
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }		// add this line
+    }
+}
+```
+
+Include the Recycler libary in the dependencies in your APP build.gradle file
+
+```
+dependencies {
+    compile 'com.github.smart-fun:Recycler:1.0.0'    // add this line
+}
+```
+
+## Example of usage
 
 ```java
+
 public class ProductItem extends RecyclerItem {
 
     static final int PRODUCT_ITEM_RES_ID = R.layout.product_item;
@@ -40,6 +62,7 @@ public class ProductItem extends RecyclerItem {
 ```
 
 ``` java
+
 public class ProductHolder extends RecyclerHolder {
 
     private ImageView mPhotoView;
@@ -54,6 +77,7 @@ public class ProductHolder extends RecyclerHolder {
 ```
 
 ``` java
+
 public class MainAdapter extends RecyclerAdapter {
 
     public MainAdapter() {
@@ -74,6 +98,7 @@ public class MainAdapter extends RecyclerAdapter {
 ```
 
 ``` java
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
