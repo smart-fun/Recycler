@@ -1,29 +1,5 @@
 apply plugin: 'com.android.library'
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'smart-fun'
-
-    publishedGroupId = 'fr.arnaudguyon.recycler'
-    libraryName = 'Recycler'
-    artifact = 'recycler'
-
-    libraryDescription = 'Makes the RecyclerView easy to use, especially with different types of items'
-
-    siteUrl = 'https://github.com/smart-fun/Recycler'
-    gitUrl = 'https://github.com/smart-fun/Recycler.git'
-
-    libraryVersion = '1.0.0'
-
-    developerId = 'smart-fun'
-    developerName = 'Arnaud Guyon'
-    developerEmail = 'contact@arnaudguyon.fr'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
