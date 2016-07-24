@@ -1,24 +1,23 @@
 # Recycler
-Recycler is an Android Studio project (soon a library) which makes it easy to use the RecyclerView, especially with items of different types.
+Recycler is an Android Studio Library which makes it easy to use the RecyclerView, especially with items of different types.
 
-3 classes must be extended to use that library, they work together:
+3 classes that work together are used:
 * RecyclerAdapter
 * RecyclerItem
 * RecyclerHolder
 
-#### RecyclerAdapter
-This class extends RecyclerView.Adapter
-It holds an ArrayList of RecyclerItem so that it is easy to manipulate always the same type of objects
+### RecyclerAdapter
+It extends the RecyclerView.Adapter class, and handles RecyclerItem objects. Lots of convenient methods have been added to add / insert or remove items. You only have to override getHolderClassForViewType(). See the example below.
 
-#### RecyclerItem
-Item to extend depending on the content you want to display (ie Products or Ads)
+### RecyclerItem
+Item used by the RecyclerAdapter. Depending on the content you want to display (ie Products or Ads), you will create different simple items. You only have to override updateView(). See the example below.
 
-#### RecyclerHolder
-Holds the View
+### RecyclerHolder
+Holds the View. It's the same as the RecyclerView.ViewHolder class but ready to use with the RecyclerAdapter.
 
 ## Installation
 
-Add the following maven{} line in your PROJECT build.gradle file
+Add the following maven{} line to your PROJECT build.gradle file
 
 ```
 allprojects {
@@ -29,7 +28,7 @@ allprojects {
 }
 ```
 
-Include the Recycler libary in the dependencies in your APP build.gradle file
+Add the libary to your APP build.gradle file
 
 ```
 dependencies {
