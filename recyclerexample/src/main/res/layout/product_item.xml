@@ -13,12 +13,14 @@
         android:padding="5dp"
         android:src="@android:drawable/sym_def_app_icon" />
 
-    <TextView
-        android:id="@+id/titleView"
+    <EditText
+        android:id="@+id/editView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:ems="10"
         android:gravity="center_horizontal"
+        android:inputType="textPersonName"
         android:text="Text to replace"
         android:textSize="20sp" />
 </LinearLayout>

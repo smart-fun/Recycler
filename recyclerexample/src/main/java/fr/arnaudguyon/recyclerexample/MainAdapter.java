@@ -1,5 +1,7 @@
 package fr.arnaudguyon.recyclerexample;
 
+import junit.framework.Assert;
+
 import fr.arnaudguyon.recycler.RecyclerAdapter;
 import fr.arnaudguyon.recycler.RecyclerHolder;
 
@@ -19,8 +21,10 @@ public class MainAdapter extends RecyclerAdapter {
                 return ProductItem.Holder.class;
             case AdItem.AD_ITEM_RES_ID:
                 return AdItem.Holder.class;
+            default:
+                Assert.assertTrue("No Holder class defined for this view", false);
+                return null;
         }
-        return null;
     }
 
 }

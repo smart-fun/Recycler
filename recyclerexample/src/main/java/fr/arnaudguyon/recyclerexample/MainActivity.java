@@ -18,17 +18,16 @@ public class MainActivity extends AppCompatActivity {
         MainAdapter adapter = new MainAdapter();
         recyclerView.setAdapter(adapter);
 
+        for(int i=1; i<11; ++i) {
+            Product product1 = new Product(R.drawable.ic_computer, "Computer A" + i);
+            Product product2 = new Product(R.drawable.ic_mouse, "Mouse USB " + i);
+            Product product3 = new Product(R.drawable.ic_keyboard, "French Keyboard " + i);
+            Ad ad = new Ad("Promotion " + i, "-50% on all mouses!");
 
-        Product product1 = new Product(R.drawable.ic_computer, "Computer A");
-        Product product2 = new Product(R.drawable.ic_mouse, "Mouse USB");
-        Product product3 = new Product(R.drawable.ic_keyboard, "French Keyboard");
-        Ad ad = new Ad("Promotion", "-50% on all mouses!");
-
-        for(int i=0; i<10; ++i) {
             adapter.addItem(new ProductItem(product1));
             adapter.addItem(new ProductItem(product2));
-            adapter.addItem(new AdItem(ad));
             adapter.addItem(new ProductItem(product3));
+            adapter.addItem(new AdItem(ad));
         }
 
     }

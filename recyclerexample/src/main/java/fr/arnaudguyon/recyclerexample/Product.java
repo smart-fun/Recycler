@@ -16,6 +16,10 @@ public class Product {
         return mName;
     }
 
+    public void setName(String name) {
+        mName = name;
+    }
+
     public int getPhotoResId() {
         return mPhotoResId;
     }

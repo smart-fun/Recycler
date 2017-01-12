@@ -1,9 +1,8 @@
 package fr.arnaudguyon.recyclerexample;
 
-import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import fr.arnaudguyon.recycler.RecyclerHolder;
 import fr.arnaudguyon.recycler.RecyclerItem;
@@ -27,15 +26,16 @@ public class ProductItem extends RecyclerItem {
 
         Holder holder = (Holder) parentHolder;
         holder.mPhotoView.setImageResource(mProduct.getPhotoResId());
-        holder.mTitleView.setText(mProduct.getName());
+        holder.mEditView.setText(mProduct.getName());
 
-        Log.i("ITEM", "ITEM " + position + " updated");
     }
 
     @Override
     public void viewRecycled(RecyclerHolder parentHolder, int position) {
         super.viewRecycled(parentHolder, position);
-        Log.i("ITEM", "ITEM " + position + " recycled");
+
+        Holder holder = (Holder) parentHolder;
+        mProduct.setName(holder.mEditView.getText().toString());    // Saves the user text
     }
 
     @Override
@@ -46,12 +46,12 @@ public class ProductItem extends RecyclerItem {
     public static class Holder extends RecyclerHolder {
 
         private ImageView mPhotoView;
-        private TextView mTitleView;
+        private EditText mEditView;
 
         public Holder(View itemView) {
             super(itemView);
             mPhotoView = (ImageView) itemView.findViewById(R.id.photoView);
-            mTitleView = (TextView) itemView.findViewById(R.id.titleView);
+            mEditView = (EditText) itemView.findViewById(R.id.editView);
         }
     }
 
