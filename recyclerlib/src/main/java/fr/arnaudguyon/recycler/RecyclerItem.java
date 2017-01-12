@@ -15,6 +15,11 @@ public abstract class RecyclerItem {
     public abstract void updateView(RecyclerHolder parentHolder, int position);
 
     /**
+     * Called when the Holder is recycled, for example to update the item with the holder data
+     */
+    public void viewRecycled(RecyclerHolder parentHolder, int position) {}
+
+    /**
      * Required so that the Adapter knows what Layout to inflate for that Item
      * @return The Layout Resource Id for the View
      */

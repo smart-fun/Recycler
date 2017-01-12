@@ -66,13 +66,25 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter<RecyclerHolde
     @Override
     final public void onBindViewHolder(RecyclerHolder holder, int position) {
         RecyclerItem item = getItem(position);
-        item.updateView(holder, position);
+        if (item != null) {
+            item.updateView(holder, position);
+        }
+    }
+
+    @Override
+    public void onViewRecycled(RecyclerHolder holder) {
+        int position = holder.getAdapterPosition();
+        RecyclerItem item = getItem(position);
+        if (item != null) {
+            item.viewRecycled(holder, position);
+        }
+        super.onViewRecycled(holder);
     }
 
     @Override
     final public int getItemViewType(int position) {
         RecyclerItem item = getItem(position);
-        return item.getViewResId();
+        return (item != null) ? item.getViewResId() : 0;
     }
 
     protected abstract Class<? extends RecyclerHolder> getHolderClassForViewType(int viewType);
