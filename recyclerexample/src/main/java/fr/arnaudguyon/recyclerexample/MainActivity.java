@@ -24,10 +24,12 @@ public class MainActivity extends AppCompatActivity {
         Product product3 = new Product(R.drawable.ic_keyboard, "French Keyboard");
         Ad ad = new Ad("Promotion", "-50% on all mouses!");
 
-        adapter.addItem(new ProductItem(product1));
-        adapter.addItem(new ProductItem(product2));
-        adapter.addItem(new AdItem(ad));
-        adapter.addItem(new ProductItem(product3));
+        for(int i=0; i<10; ++i) {
+            adapter.addItem(new ProductItem(product1));
+            adapter.addItem(new ProductItem(product2));
+            adapter.addItem(new AdItem(ad));
+            adapter.addItem(new ProductItem(product3));
+        }
 
     }
 }

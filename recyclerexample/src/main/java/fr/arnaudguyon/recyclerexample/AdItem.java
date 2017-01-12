@@ -34,7 +34,7 @@ public class AdItem extends RecyclerItem {
         return AD_ITEM_RES_ID;
     }
 
-    static class Holder extends RecyclerHolder {
+    public static class Holder extends RecyclerHolder {
 
         private TextView mTitleView;
         private TextView mDescriptionView;

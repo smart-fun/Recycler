@@ -1,5 +1,6 @@
 package fr.arnaudguyon.recyclerexample;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,6 +29,13 @@ public class ProductItem extends RecyclerItem {
         holder.mPhotoView.setImageResource(mProduct.getPhotoResId());
         holder.mTitleView.setText(mProduct.getName());
 
+        Log.i("ITEM", "ITEM " + position + " updated");
+    }
+
+    @Override
+    public void viewRecycled(RecyclerHolder parentHolder, int position) {
+        super.viewRecycled(parentHolder, position);
+        Log.i("ITEM", "ITEM " + position + " recycled");
     }
 
     @Override
@@ -35,7 +43,7 @@ public class ProductItem extends RecyclerItem {
         return PRODUCT_ITEM_RES_ID;
     }
 
-    static class Holder extends RecyclerHolder {
+    public static class Holder extends RecyclerHolder {
 
         private ImageView mPhotoView;
         private TextView mTitleView;
