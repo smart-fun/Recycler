@@ -15,28 +15,29 @@ Item used by the RecyclerAdapter. Depending on the content you want to display (
 ### RecyclerHolder
 Holds the View. It's the same as the RecyclerView.ViewHolder class but ready to use with the RecyclerAdapter.
 
-## Installation
+## Example of usage
 
-Add the following maven{} line to your PROJECT build.gradle file
+Here is an example to display a list of products.
+They have a name that can be changed by the user, and a photo.
 
-```
-allprojects {
-    repositories {
-        jcenter()
-        maven { url "https://jitpack.io" }		// add this line
+The Holder for the view is as follows. The **holder class must be public**!
+
+``` java
+
+public class ProductHolder extends RecyclerHolder {
+
+    private EditText mEditView;
+    private ImageView mPhotoView;
+
+    public ProductHolder(View itemView) {
+        super(itemView);
+        mEditView = (EditText) itemView.findViewById(R.id.editView);
+        mPhotoView = (ImageView) itemView.findViewById(R.id.photoView);
     }
 }
 ```
 
-Add the libary to your APP build.gradle file
-
-```
-dependencies {
-    compile 'com.github.smart-fun:Recycler:1.0.0'    // add this line
-}
-```
-
-## Example of usage
+Now the Item class that holds the product. The important method is **updateView**, it is called when the view is refreshed. **viewRecycled** is optional and can be used to save values from the holder to the item when the view is scrolled.
 
 ```java
 
@@ -55,25 +56,23 @@ public class ProductItem extends RecyclerItem {
     public void updateView(RecyclerHolder parentHolder, int position) {
         ProductHolder holder = (ProductHolder) parentHolder;
         holder.mPhotoView.setImageResource(mProduct.getPhotoResId());
-        holder.mTitleView.setText(mProduct.getName());
+        holder.mEditView.setText(mProduct.getName());
+    }
+    
+    // optional callback that is used to update the product from the holder.
+    // it is called when the view is scrolled.
+    // this way if the user has modified the product name, it is updated in the product.
+    @Override
+    public void viewRecycled(RecyclerHolder parentHolder, int position) {
+        super.viewRecycled(parentHolder, position);
+
+        Holder holder = (Holder) parentHolder;
+        mProduct.setName(holder.mEditView.getText().toString());    // Saves the user text
     }
 }
 ```
 
-``` java
-
-public class ProductHolder extends RecyclerHolder {
-
-    private ImageView mPhotoView;
-    private TextView mTitleView;
-
-    public ProductHolder(View itemView) {
-        super(itemView);
-        mPhotoView = (ImageView) itemView.findViewById(R.id.photoView);
-        mTitleView = (TextView) itemView.findViewById(R.id.titleView);
-    }
-}
-```
+And the Recycler itself. It just needs to returns the class of the holder.
 
 ``` java
 
@@ -90,11 +89,15 @@ public class MainAdapter extends RecyclerAdapter {
                 return ProductHolder.class;
             case AdItem.AD_ITEM_RES_ID:
                 return AdHolder.class;
+            default:
+                Assert.assertTrue("No Holder class defined for this view", false);
+                return null;
         }
-        return null;
     }
 }
 ```
+
+Imagine to do the same with Ads that you want to add in the recycler view: you need to create an AdItem and an AdHolder class. Finally, add the products and the ads to the recycler view:
 
 ``` java
 
@@ -129,6 +132,27 @@ public class MainActivity extends AppCompatActivity {
 ## Result on screen
 
 ![alt text](https://github.com/smart-fun/Recycler/blob/master/screenshot.png?raw=true "Screenshot example")
+
+## Installation with Gradle
+
+Add the following maven{} line to your PROJECT build.gradle file
+
+```
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }		// add this line
+    }
+}
+```
+
+Add the libary to your APP build.gradle file
+
+```
+dependencies {
+    compile 'com.github.smart-fun:Recycler:1.1.1'    // add this line
+}
+```
 
 ## License
 
