@@ -18,7 +18,7 @@ Holds the View. It's the same as the RecyclerView.ViewHolder class but ready to 
 ## Example of usage
 
 Here is an example to display a list of products.
-They have a name that can be changed by the user, and a photo.
+They have a name that can be edited by the user, and a photo.
 
 The Holder for the view is as follows. The **holder class must be public**!
 
@@ -37,7 +37,7 @@ public class ProductHolder extends RecyclerHolder {
 }
 ```
 
-Now the Item class that holds the product. The important method is **updateView**, it is called when the view is refreshed. **viewRecycled** is optional and can be used to save values from the holder to the item when the view is scrolled.
+Now the Item class that holds the product. The important method is **updateView**, it is called when the view is refreshed. **viewRecycled** is optional and can be used to save values from the holder to the item when the view is scrolled. In this example, viewRecycled is used to save the name of the product to the Product.
 
 ```java
 
@@ -72,7 +72,7 @@ public class ProductItem extends RecyclerItem {
 }
 ```
 
-And the Recycler itself. It just needs to returns the class of the holder.
+And the Recycler itself. It just needs to return the class of the holder.
 
 ``` java
 
