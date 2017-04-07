@@ -25,4 +25,17 @@ public abstract class RecyclerItem {
      */
     public abstract int getViewResId();
 
+    /**
+     * called when the View is attached to the window
+     * @param parentHolder Holder of the View. You will probably Cast it in your own specific Holder class.
+     * @param position Position in the list
+     */
+    public void viewAttachedToWindow(RecyclerHolder parentHolder, int position) {}
+
+    /**
+     * called when the View is detached from the window
+     * @param parentHolder Holder of the View. You will probably Cast it in your own specific Holder class.
+     * @param position Position in the list
+     */
+    public void viewDetachedFromWindow(RecyclerHolder parentHolder, int position) {}
 }

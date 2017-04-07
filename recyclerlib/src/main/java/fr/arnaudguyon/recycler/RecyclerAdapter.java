@@ -87,6 +87,26 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter<RecyclerHolde
         return (item != null) ? item.getViewResId() : 0;
     }
 
+    @Override
+    public void onViewAttachedToWindow(RecyclerHolder holder) {
+        int position = holder.getAdapterPosition();
+        RecyclerItem item = getItem(position);
+        if (item != null) {
+            item.viewAttachedToWindow(holder, position);
+        }
+        super.onViewAttachedToWindow(holder);
+    }
+
+    @Override
+    public void onViewDetachedFromWindow(RecyclerHolder holder) {
+        int position = holder.getAdapterPosition();
+        RecyclerItem item = getItem(position);
+        if (item != null) {
+            item.viewDetachedFromWindow(holder, position);
+        }
+        super.onViewDetachedFromWindow(holder);
+    }
+
     protected abstract Class<? extends RecyclerHolder> getHolderClassForViewType(int viewType);
 
     final public int getPosition(RecyclerItem item) {
