@@ -150,7 +150,7 @@ Add the libary to your APP build.gradle file
 
 ```
 dependencies {
-    compile 'com.github.smart-fun:Recycler:1.1.1'    // add this line
+    compile 'com.github.smart-fun:Recycler:1.1.3'    // add this line
 }
 ```
 
