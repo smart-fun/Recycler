@@ -23,11 +23,7 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter<RecyclerHolde
     }
 
     public RecyclerAdapter(@NonNull ArrayList<? extends RecyclerItem> items) {
-        if (items == null) {
-            mItems = new ArrayList<>();
-        } else {
-            mItems = new ArrayList<>(items);
-        }
+        mItems = new ArrayList<>(items);
     }
 
     @Override
@@ -43,7 +39,8 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter<RecyclerHolde
     }
 
     @Override
-    public RecyclerHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @NonNull
+    public RecyclerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View itemView = inflater.inflate(viewType, parent, false);
         Class<? extends RecyclerHolder> holderClass = getHolderClassForViewType(viewType);
@@ -64,7 +61,7 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter<RecyclerHolde
     }
 
     @Override
-    final public void onBindViewHolder(RecyclerHolder holder, int position) {
+    final public void onBindViewHolder(@NonNull RecyclerHolder holder, int position) {
         RecyclerItem item = getItem(position);
         if (item != null) {
             item.updateView(holder, position);
@@ -72,7 +69,7 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter<RecyclerHolde
     }
 
     @Override
-    public void onViewRecycled(RecyclerHolder holder) {
+    public void onViewRecycled(@NonNull RecyclerHolder holder) {
         int position = holder.getAdapterPosition();
         RecyclerItem item = getItem(position);
         if (item != null) {
@@ -88,7 +85,7 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter<RecyclerHolde
     }
 
     @Override
-    public void onViewAttachedToWindow(RecyclerHolder holder) {
+    public void onViewAttachedToWindow(@NonNull RecyclerHolder holder) {
         int position = holder.getAdapterPosition();
         RecyclerItem item = getItem(position);
         if (item != null) {
@@ -98,7 +95,7 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter<RecyclerHolde
     }
 
     @Override
-    public void onViewDetachedFromWindow(RecyclerHolder holder) {
+    public void onViewDetachedFromWindow(@NonNull RecyclerHolder holder) {
         int position = holder.getAdapterPosition();
         RecyclerItem item = getItem(position);
         if (item != null) {
@@ -110,7 +107,7 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter<RecyclerHolde
     protected abstract Class<? extends RecyclerHolder> getHolderClassForViewType(int viewType);
 
     final public int getPosition(RecyclerItem item) {
-        for(int position=0; position<mItems.size(); ++position) {
+        for (int position = 0; position < mItems.size(); ++position) {
             if (item.equals(mItems.get(position))) {
                 return position;
             }
@@ -143,6 +140,7 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter<RecyclerHolde
         mItems.add(position, item);
         notifyItemInserted(position);
     }
+
     final public void removeItem(int position) {
         mItems.remove(position);
         notifyItemRemoved(position);
