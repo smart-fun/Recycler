@@ -1,6 +1,6 @@
 package fr.arnaudguyon.recyclerexample;
 
-import junit.framework.Assert;
+import android.util.Log;
 
 import fr.arnaudguyon.recycler.RecyclerAdapter;
 import fr.arnaudguyon.recycler.RecyclerHolder;
@@ -10,6 +10,7 @@ import fr.arnaudguyon.recycler.RecyclerHolder;
  */
 public class MainAdapter extends RecyclerAdapter {
 
+    private static final String TAG = "MainAdapter";
     public MainAdapter() {
         super();
     }
@@ -22,7 +23,7 @@ public class MainAdapter extends RecyclerAdapter {
             case AdItem.AD_ITEM_RES_ID:
                 return AdItem.Holder.class;
             default:
-                Assert.assertTrue("No Holder class defined for this view", false);
+                Log.e(TAG, "No Holder class defined for this view");
                 return null;
         }
     }
