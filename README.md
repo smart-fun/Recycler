@@ -1,5 +1,8 @@
 # Recycler
+
 Recycler is an Android Studio Library which makes it easy to use the RecyclerView, especially with items of different types.
+
+** Recycler library now uses AndroidX library instead of AppCompat library!**
 
 3 classes that work together are used:
 * RecyclerAdapter
@@ -110,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         MainAdapter adapter = new MainAdapter();
         recyclerView.setAdapter(adapter);
 
