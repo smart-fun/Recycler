@@ -153,7 +153,7 @@ Add the libary to your APP build.gradle file
 
 ```
 dependencies {
-    implementation 'com.github.smart-fun:Recycler:1.1.6'    // add this line
+    implementation 'com.github.smart-fun:Recycler:1.2.0'    // add this line
 }
 ```
 
