@@ -20,6 +20,15 @@ Holds the View. It's the same as the RecyclerView.ViewHolder class but ready to 
 
 ## Example of usage
 
+Add a RecyclerView to your layout
+
+```xml
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+```
+
 Here is an example to display a list of products.
 They have a name that can be edited by the user, and a photo.
 
@@ -153,13 +162,14 @@ Add the libary to your APP build.gradle file
 
 ```
 dependencies {
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'com.github.smart-fun:Recycler:1.2.0'    // add this line
 }
 ```
 
 ## License
 
-Copyright 2016-2018 Arnaud Guyon
+Copyright 2016-2020 Arnaud Guyon
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
