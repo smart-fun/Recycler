@@ -164,13 +164,13 @@ Add the libary to your APP build.gradle file
 ```
 dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
-    implementation 'com.github.smart-fun:Recycler:1.2.0'    // add this line
+    implementation 'com.github.smart-fun:Recycler:1.2.1'    // add this line
 }
 ```
 
 ## License
 
-Copyright 2016-2020 Arnaud Guyon
+Copyright 2016-2021 Arnaud Guyon
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
