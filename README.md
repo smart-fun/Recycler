@@ -49,7 +49,8 @@ public class ProductHolder extends RecyclerHolder {
 }
 ```
 
-Now the Item class that holds the product. The important method is **updateView**, it is called when the view is refreshed. **viewRecycled** is optional and can be used to save values from the holder to the item when the view is scrolled. In this example, viewRecycled is used to save the name of the product to the Product.
+Now the Item class that holds the product. The important method is **updateView**, it is called when the view is refreshed. Note that the **position** is valid only at the moment of the call of updateView. Don't keep this position as it can be modified if other items are removed.
+ **viewRecycled** is optional and can be used to save values from the holder to the item when the view is scrolled. In this example, viewRecycled is used to save the name of the product to the Product.
 
 ```java
 
